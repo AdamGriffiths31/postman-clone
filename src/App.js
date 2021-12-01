@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
-
-function App() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+import InputGroup from './Components/InputGroup' 
+import TabStripRequest from './Components/TabStripRequest'         
+import TabStripResponse from './Components/TabStripResponse'
+const App=() =>{
+  const [ response, setResponse ] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app p-4">
+        <TabStripRequest setResponse={setResponse}/>
+        <br/>
+        <TabStripResponse response={response}/>
     </div>
   );
 }
